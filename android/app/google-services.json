@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1086508627456",
+    "project_id": "cuida-pet-adf",
+    "storage_bucket": "cuida-pet-adf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086508627456:android:3075edd3d65fa46e8e4ae5",
+        "android_client_info": {
+          "package_name": "com.example.cuidapet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3jd8IWUUb9xVAziEI_rbHJ3cnUPoNmuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
