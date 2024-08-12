@@ -1,9 +1,12 @@
 import 'dart:convert';
 
+import 'package:firebase_cloud_firestore/firebase_cloud_firestore.dart';
+
 class UserModel {
   final String email;
   final String registerType;
   final String imageAvatar;
+  
     UserModel({
     required this.email,
     required this.registerType,
@@ -30,6 +33,17 @@ class UserModel {
       email: map['email'] ?? '',
       registerType: map['registerType'] ?? '',
       imageAvatar: map['imageAvatar'] ?? '',
+    );
+  }
+
+   factory UserModel.fromFirestore(
+    DocumentSnapshot<Map<String, dynamic>> snapshot,
+  ) {
+    final data = snapshot.data();
+    return UserModel(
+      email: data?['email'] ?? '',
+      registerType: data?['registerType'] ?? '',
+      imageAvatar: data?['imageAvatar'] ?? '',
     );
   }
 

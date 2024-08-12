@@ -25,8 +25,12 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: const Center(
-          child:  FaIcon(FontAwesomeIcons.chevronLeft),
+        leading:  Center(
+          child: IconButton(
+            onPressed: ()
+              {Modular.to.pop();
+            }, 
+            icon:  const FaIcon(FontAwesomeIcons.chevronLeft)            ),
         ),
       ),
       body:  SingleChildScrollView(

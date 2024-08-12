@@ -66,6 +66,7 @@ class _FormRegisterState extends State<_FormRegister> {
             height: 50.h.toDouble(),
             onPressed: () {
                   final isValid = _formKey.currentState?.validate() ?? false;
+                  FocusScope.of(context).unfocus();
                   if (isValid) {
                     controller.register(login: _loginEC.text,password: _passwordEC.text);
                   }

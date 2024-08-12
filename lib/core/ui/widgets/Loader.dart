@@ -1,6 +1,6 @@
 import 'package:asuka/asuka.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 class Loader {
  static OverlayEntry? _entry;
@@ -12,7 +12,9 @@ class Loader {
    _entry ??= OverlayEntry(builder:(context) {
         return Container(
           color: Colors.black54,
-          child: const CircularProgressIndicator() ,
+          child: const Center(
+            child: CircularProgressIndicator(),
+          ) ,
         );
    }, );
 

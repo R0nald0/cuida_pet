@@ -1,9 +1,11 @@
 
+import 'package:cuidapet/app/module/core/auth/auth_store.dart';
 import 'package:cuidapet/core/constants.dart';
 import 'package:cuidapet/core/helpers/enviroments.dart';
 import 'package:cuidapet/core/local_storage/loacl_storage.dart';
 import 'package:cuidapet/core/logger/app_logger.dart';
-import 'package:cuidapet/core/rest_client/dio/auth_interceptor.dart';
+import 'package:cuidapet/core/rest_client/dio/intercptors/auth_interceptor.dart';
+import 'package:cuidapet/core/rest_client/dio/intercptors/auth_refresh_token_interceptor.dart';
 import 'package:cuidapet/core/rest_client/rest_client.dart';
 import 'package:cuidapet/core/rest_client/rest_client_exception.dart';
 import 'package:cuidapet/core/rest_client/rest_client_response.dart';
@@ -14,11 +16,11 @@ class DioRestClient extends RestClient {
 
    final  _defaultBaseOptoption = BaseOptions(
     baseUrl: Enviroments.params(Constants.ENVIREMONT_BASE_URL) ?? '',
-    connectTimeout: Duration(
-      milliseconds: int.parse(Enviroments.params(Constants.REST_CLIENT_CONNECT_TIMEOUT) ?? '0' )
+    connectTimeout: const Duration(
+      milliseconds: 6000//int.parse(Enviroments.params(Constants.REST_CLIENT_CONNECT_TIMEOUT) ?? '0' )
       ),
-    receiveTimeout: Duration(
-      milliseconds: int.parse(Enviroments.params(Constants.REST_CLIENT_RECEIVE_TIMEOUT) ?? '0' )
+    receiveTimeout: const Duration(
+      milliseconds: 6000 //int.parse(Enviroments.params(Constants.REST_CLIENT_RECEIVE_TIMEOUT) ?? '0' )
       )
    );
  
@@ -26,12 +28,21 @@ class DioRestClient extends RestClient {
   DioRestClient({
      required AppLogger logger,
      required LocalStorage storage,
+     required LocalSecureStorage secureStorage,
+     required AuthStore authStore,
     BaseOptions ? baseOptions}
   ){
      _dio = Dio(baseOptions ??  _defaultBaseOptoption);
      _dio.interceptors.addAll([
-        LogInterceptor(requestBody: true,responseBody: true),
-        AuthInterceptor(logger: logger, storage: storage)
+        AuthInterceptor(storage: storage,authStore: authStore),
+        AuthRefreshTokenInterceptor(
+          authStore: authStore, 
+          localStorage: storage, 
+          localSecureStorage: secureStorage, 
+          restClient: this, 
+          logger: logger
+          ),
+        LogInterceptor(requestBody: true,responseBody: true)
      ]);
   }
 

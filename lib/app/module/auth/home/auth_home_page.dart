@@ -11,9 +11,8 @@ import 'package:mobx/mobx.dart';
 class AuthHomePage extends StatefulWidget {
   final AuthStore _authStore;
 
-   AuthHomePage({Key? key,required AuthStore authStore}):
-   _authStore = authStore,
-   super(key: key);
+ const  AuthHomePage({super.key,required AuthStore authStore}):
+   _authStore = authStore;
 
   @override
   State<AuthHomePage> createState() => _AuthHomePageState();
@@ -29,9 +28,9 @@ class _AuthHomePageState extends State<AuthHomePage> {
        
        if (userLogged != null  && userLogged.email.isNotEmpty) {
           Modular.to.navigate('/home/');
-          print(userLogged.email);
+          debugPrint(userLogged.email);
        } else {
-          print( 'user null');
+          debugPrint( 'user null');
           Modular.to.navigate('/auth/login/');
        }
        

@@ -1,12 +1,15 @@
 
 
+import 'package:cuidapet/app/models/social_login_type.dart';
 import 'package:cuidapet/app/module/login/login_controller.dart';
-import 'package:cuidapet/core/helpers/enviroments.dart';
+
 import 'package:cuidapet/core/constants.dart';
+import 'package:cuidapet/core/router_cuida_pet.dart';
 import 'package:cuidapet/core/ui/extensions/size_screenn_extension.dart';
 import 'package:cuidapet/core/ui/extensions/theme_extension.dart';
 import 'package:cuidapet/core/ui/widgets/cuidaper_text_form_field.dart';
 import 'package:cuidapet/core/ui/widgets/cuidapet_default_button.dart';
+
 import 'package:cuidapet/core/ui/widgets/rounded_button_with_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -25,8 +28,6 @@ class LoginPage extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              
-              
               SizedBox(height: 50.h.toDouble()),
               Center(
                 child: Image.asset(
@@ -35,10 +36,10 @@ class LoginPage extends StatelessWidget {
                   fit: BoxFit.fill,
                   ),
               ),
-              Text(Enviroments.params('BASE_URL') ?? ''),
-              const SizedBox(height: 20,),
-               const _LoginForm(),
-               const SizedBox(height: 10,),
+            
+               const SizedBox(height: 20,),
+              const _LoginForm(),
+              const SizedBox(height: 10,),
                const _OrSepareto(),
                const SizedBox(height: 20,),
                const _LoginRegisterButtons()
@@ -52,7 +53,7 @@ class LoginPage extends StatelessWidget {
 
 class _OrSepareto extends StatelessWidget {
 
-  const _OrSepareto({ super.key });
+  const _OrSepareto();
 
    @override
    Widget build(BuildContext context) {

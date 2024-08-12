@@ -2,14 +2,17 @@ import 'package:cuidapet/app/module/auth/home/auth_home_page.dart';
 import 'package:cuidapet/app/module/login/login_module.dart';
 import 'package:cuidapet/app/module/register/register_module.dart';
 import 'package:cuidapet/app/repository/impl/user_repository_impl.dart';
-import 'package:cuidapet/app/repository/user_repository.dart';
+import 'package:cuidapet/app/repository/social/impl/social_repository_impl.dart';
+import 'package:cuidapet/app/repository/social/social_repository.dart';
+import 'package:cuidapet/app/repository/user_repository/user_repository.dart';
 import 'package:cuidapet/app/service/impl/user_serivce_impl.dart';
-import 'package:cuidapet/app/service/user_service.dart';
+import 'package:cuidapet/app/service/user_service/user_service.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AuthModule extends Module{
   @override
   void binds(Injector i) {
+    i.addLazySingleton<SocialRepository>(SocialRepositoryImpl.new);
     i.addLazySingleton<UserRepository>(()=>UserRepositoryImpl(
       logger:Modular.get(),
       restClient: Modular.get() 
@@ -18,7 +21,10 @@ class AuthModule extends Module{
     i.addLazySingleton<UserService>(() => UserSerivceImpl(
       log: Modular.get(),
       repository: Modular.get(),
-      storage: Modular.get()
+      storage: Modular.get(),
+      secureStorage: Modular.get(),
+      socialRepository: Modular.get()
+
     ));
   
     super.binds(i);

@@ -12,7 +12,20 @@
           "package_name": "com.example.cuidapet"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1086508627456-2bbgdnvv49bhmocf3lta7dttran5a02j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cuidapet",
+            "certificate_hash": "801df216818d9805fb6f2c4bfb60b5c6811ca036"
+          }
+        },
+        {
+          "client_id": "1086508627456-i912bl0vukd1evbdt6hl750enmbp6l49.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyB3jd8IWUUb9xVAziEI_rbHJ3cnUPoNmuA"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1086508627456-i912bl0vukd1evbdt6hl750enmbp6l49.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

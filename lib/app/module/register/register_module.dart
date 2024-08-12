@@ -7,7 +7,8 @@ class RegisterModule  extends Module{
   void binds(Injector i) {
     i.addLazySingleton(() => RegisterController(
       logger: Modular.get(),
-      service: Modular.get()
+      service: Modular.get(),
+      auth: Modular.get()
       ));
     super.binds(i);
    

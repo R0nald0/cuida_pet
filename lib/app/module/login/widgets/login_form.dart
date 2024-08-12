@@ -2,14 +2,14 @@
 part of '../login_page.dart'; 
 class _LoginForm extends StatefulWidget {
 
-  const _LoginForm({ Key? key }) : super(key: key);
+  const _LoginForm();
 
   @override
   State<_LoginForm> createState() => _LoginFormState();
 }
 
 class _LoginFormState extends State<_LoginForm> {
-   final _loginEC = TextEditingController();
+  final _loginEC = TextEditingController();
   final _passwordEC = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
@@ -45,8 +45,10 @@ class _LoginFormState extends State<_LoginForm> {
           CuidapetDefaultButton(
               onPressed: (){
                 final isValid = _formKey.currentState?.validate() ?? false;
+                FocusScope.of(context).unfocus();
                 if (isValid) {
-                    controller.login(_loginEC.text, _passwordEC.text);
+                  
+                 controller.login(_loginEC.text, _passwordEC.text);
                 }
               }, 
               label: "Entrar",
