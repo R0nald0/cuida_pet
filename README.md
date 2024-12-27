@@ -1,16 +1,4 @@
 # cuidapet
 
 Cuida Pet
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Aplicativo feito na Academia do Flutter, pequeno marketplace, permiti aos usuários buscar pet shops e veterinários próximos, agendar consultas, banhos, e outros serviços com base na localização e proximidade.
